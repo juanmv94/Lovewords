@@ -24,4 +24,4 @@ The process is made on the client side (javascript).
 
 ##  Limitations
 * It only accept letters and spaces
-* If you want other heart colors, you must replace them from the source code.
+* It won't make your crush to interest in you

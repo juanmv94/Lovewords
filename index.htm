@@ -1,248 +1,293 @@
 ﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <style>
 body {
     color: white;
     text-shadow: 2px 2px 4px #ff0000;
+	text-align:center;
+	background: url("https://wallpapers.com/images/featured-full/corazones-k8wytbbbeozl3s73.jpg");
+	background-size: cover;
 }
 </style>
-<body style="text-align:center" background="http://www.fondoswiki.com/Uploads/fondoswiki.com/ImagenesGrandes/corazones.jpg">
+</head>
+<body>
 <h2>Para uso exclusivo tuyo 💛</h2>
-entrada: <input type="text" id="in" size="40" oninput="cambia()"/><br/><br/>
+entrada: <input type="text" id="in" size="40" oninput="cambia()"/><br/>
+color: <select onchange="cb=this.value; remapea();">
+  <option value="💜" selected>💜 (purpura)</option>
+  <option value="💛">💛 (amarillo)</option>
+  <option value="🤍">🤍 (blanco)</option>
+  <option value="🖤">🖤 (negro)</option>
+  <option value="🤎">🤎 (marron)</option>
+  <option value="💙">💙 (azul)</option>
+  <option value="💚">💚 (verde)</option>
+  <option value="🧡">🧡 (naranja)</option>
+  <option value="❤">❤ (rojo)</option>
+  <option value="🩶">🩶 (gris)</option>
+  <option value="🩵">🩵 (cian)</option>
+  <option value="🩷">🩷 (rosa)</option>
+  <option value="💖">💖 (brillante)</option>
+  <option value="💗">💗 (latiendo)</option>
+  <option value="❤️‍🔥">❤️‍🔥 (fuego)</option>
+  <option value="✨">✨ (estrellas)</option>
+  <option value="💩">💩 (esta app)</option>
+</select>
+fondo: <select onchange="cw=this.value; remapea();">
+  <option value="💜">💜 (purpura)</option>
+  <option value="💛" selected>💛 (amarillo)</option>
+  <option value="🤍">🤍 (blanco)</option>
+  <option value="🖤">🖤 (negro)</option>
+  <option value="🤎">🤎 (marron)</option>
+  <option value="💙">💙 (azul)</option>
+  <option value="💚">💚 (verde)</option>
+  <option value="🧡">🧡 (naranja)</option>
+  <option value="❤">❤ (rojo)</option>
+  <option value="🩶">🩶 (gris)</option>
+  <option value="🩵">🩵 (cian)</option>
+  <option value="🩷">🩷 (rosa)</option>
+  <option value="💖">💖 (brillante)</option>
+  <option value="💗">💗 (latiendo)</option>
+  <option value="❤️‍🔥">❤️‍🔥 (fuego)</option>
+  <option value="✨">✨ (estrellas)</option>
+  <option value="💩">💩 (esta app)</option>
+</select>
+<br/><br/>
 salida: <br/>
-<textarea id="texto" rows="30" cols="20">
+<textarea id="texto" rows="30" cols="20" onclick="this.setSelectionRange(0, 999999); document.execCommand('copy');" readonly>
 </textarea>
 <script>
-var letras=
-'💛💛💛💛💜💛💛💛\n\
-💛💛💜💜💜💜💛💛\n\
-💛💜💜💛💛💜💜💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💜💜💜💜💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💜💜💜💜💜💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💜💜💜💜💜💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💜💜💜💜💜💛\n\
-💛💛💛💛💛💛💛💛\n\
-💛💜💜💜💜💜💜💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💜💜\n\
-💛💜💜💜💜💜💜💛\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💜💜💜💜💜💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💜💜💜💜💜💛\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💜💜💜💜💜💜\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💜💜💜💜💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💜💜💜💜💜💜\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💜💜💜💜💜💜\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💜💜💜💜💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💛💜💜💜💜💜💜💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💜💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💛💜💜💜💜💜💜💛\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💜💜💜💜💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💛💛💛💛💛💛💛💛\n\
-💛💛💜💜💜💜💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💜💜💜💜💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💛💛💛💛💛💛💜💜\n\
-💛💛💛💛💛💛💜💜\n\
-💛💛💛💛💛💛💜💜\n\
-💛💛💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💛💜💜💜💜💜💜💛\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💜💜💛\n\
-💜💜💛💛💜💜💛💛\n\
-💜💜💜💜💜💛💛💛\n\
-💜💜💛💛💜💜💛💛\n\
-💜💜💛💛💛💜💜💛\n\
-💜💜💛💛💛💛💜💜\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💜💜💜💜💜💜\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💜💛💛💜💜💜\n\
-💜💜💜💜💜💜💜💜\n\
-💜💜💛💜💜💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💜💛💛💛💜💜\n\
-💜💜💜💜💛💛💜💜\n\
-💜💜💛💜💜💛💜💜\n\
-💜💜💛💛💜💜💜💜\n\
-💜💜💛💛💛💜💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💛💛💛💛💛💛💛💛\n\
-💛💜💜💜💜💜💜💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💛💜💜💜💜💜💜💛\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💜💜💜💜💜💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💜💜💜💜💜💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💛💜💜💜💜💜💜💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💜💛💜💜\n\
-💜💜💛💛💛💜💜💛\n\
-💛💜💜💜💜💛💛💜\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💜💜💜💜💜💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💜💜💜💜💜💛\n\
-💜💜💛💛💜💜💛💛\n\
-💜💜💛💛💛💜💜💛\n\
-💜💜💛💛💛💛💜💜\n\
-💛💛💛💛💛💛💛💛\n\
-💛💜💜💜💜💜💛💛\n\
-💜💜💛💛💛💜💜💛\n\
-💜💜💛💛💛💛💛💛\n\
-💛💜💜💜💜💜💛💛\n\
-💛💛💛💛💛💜💜💛\n\
-💜💜💛💛💛💜💜💛\n\
-💛💜💜💜💜💜💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💜💜💜💜💜💜\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💛💜💜💜💜💜💜💛\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💛💜💜💛💛💜💜💛\n\
-💛💛💜💜💜💜💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💜💜💛💜💜💛💜💜\n\
-💜💜💜💜💜💜💜💜\n\
-💜💜💜💛💛💜💜💜\n\
-💜💜💛💛💛💛💜💜\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💜💜\n\
-💛💜💜💛💛💜💜💛\n\
-💛💛💜💜💜💜💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💜💜💜💜💛💛\n\
-💛💜💜💛💛💜💜💛\n\
-💜💜💛💛💛💛💜💜\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💛💛💛💛💜💜\n\
-💛💜💜💛💛💜💜💛\n\
-💛💛💜💜💜💜💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💜💜💜💜💜💜💜💜\n\
-💛💛💛💛💛💜💜💛\n\
-💛💛💛💛💜💜💛💛\n\
-💛💛💛💜💜💛💛💛\n\
-💛💛💜💜💛💛💛💛\n\
-💛💜💜💛💛💛💛💛\n\
-💜💜💜💜💜💜💜💜\n\
-💛💛💛💛💛💛💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-💛💛💛💛💛💛💛💛\n\
-';
-function cambia()
-{
+var shapeletras=[
+'    X   \n\
+  XXXX  \n\
+ XX  XX \n\
+XX    XX\n\
+XXXXXXXX\n\
+XX    XX\n\
+XX    XX\n\
+',
+'XXXXXXX \n\
+XX    XX\n\
+XX    XX\n\
+XXXXXXX \n\
+XX    XX\n\
+XX    XX\n\
+XXXXXXX \n\
+',
+' XXXXXX \n\
+XX    XX\n\
+XX      \n\
+XX      \n\
+XX      \n\
+XX    XX\n\
+ XXXXXX \n\
+',
+'XXXXXXX \n\
+XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+XXXXXXX \n\
+',
+'XXXXXXXX\n\
+XX      \n\
+XX      \n\
+XXXXXX  \n\
+XX      \n\
+XX      \n\
+XXXXXXXX\n\
+',
+'XXXXXXXX\n\
+XX      \n\
+XX      \n\
+XXXXXX  \n\
+XX      \n\
+XX      \n\
+XX      \n\
+',
+' XXXXXX \n\
+XX    XX\n\
+XX      \n\
+XX   XXX\n\
+XX    XX\n\
+XX    XX\n\
+ XXXXXX \n\
+',
+'XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+XXXXXXXX\n\
+XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+',
+'  XXXX  \n\
+   XX   \n\
+   XX   \n\
+   XX   \n\
+   XX   \n\
+   XX   \n\
+  XXXX  \n\
+',
+'      XX\n\
+      XX\n\
+      XX\n\
+      XX\n\
+XX    XX\n\
+XX    XX\n\
+ XXXXXX \n\
+',
+'XX    XX\n\
+XX   XX \n\
+XX  XX  \n\
+XXXXX   \n\
+XX  XX  \n\
+XX   XX \n\
+XX    XX\n\
+',
+'XX      \n\
+XX      \n\
+XX      \n\
+XX      \n\
+XX      \n\
+XX      \n\
+XXXXXXXX\n\
+',
+'XX    XX\n\
+XXX  XXX\n\
+XXXXXXXX\n\
+XX XX XX\n\
+XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+',
+'XX    XX\n\
+XXX   XX\n\
+XXXX  XX\n\
+XX XX XX\n\
+XX  XXXX\n\
+XX   XXX\n\
+XX    XX\n\
+',
+' XXXXXX \n\
+XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+ XXXXXX \n\
+',
+'XXXXXXX \n\
+XX    XX\n\
+XX    XX\n\
+XXXXXXX \n\
+XX      \n\
+XX      \n\
+XX      \n\
+',
+' XXXXXX \n\
+XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+XX  X XX\n\
+XX   XX \n\
+ XXXX  X\n\
+',
+'XXXXXXX \n\
+XX    XX\n\
+XX    XX\n\
+XXXXXXX \n\
+XX  XX  \n\
+XX   XX \n\
+XX    XX\n\
+',
+' XXXXX  \n\
+XX   XX \n\
+XX      \n\
+ XXXXX  \n\
+     XX \n\
+XX   XX \n\
+ XXXXX  \n\
+',
+'XXXXXXXX\n\
+   XX   \n\
+   XX   \n\
+   XX   \n\
+   XX   \n\
+   XX   \n\
+   XX   \n\
+',
+'XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+ XXXXXX \n\
+',
+'XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+ XX  XX \n\
+  XXXX  \n\
+   XX   \n\
+',
+'XX    XX\n\
+XX    XX\n\
+XX    XX\n\
+XX XX XX\n\
+XXXXXXXX\n\
+XXX  XXX\n\
+XX    XX\n\
+',
+'XX    XX\n\
+ XX  XX \n\
+  XXXX  \n\
+   XX   \n\
+  XXXX  \n\
+ XX  XX \n\
+XX    XX\n\
+',
+'XX    XX\n\
+ XX  XX \n\
+  XXXX  \n\
+   XX   \n\
+   XX   \n\
+   XX   \n\
+   XX   \n\
+',
+'XXXXXXXX\n\
+     XX \n\
+    XX  \n\
+   XX   \n\
+  XX    \n\
+ XX     \n\
+XXXXXXXX\n\
+',
+'        \n\
+'];
+var cb='💜',cw='💛',letras;
+
+function cambia() {
 var tfinal="";
-var mitexto=document.getElementById("in").value;
-for (var i=0;i<mitexto.length;i++)
-	{
+var mitexto=document.getElementById("in").value.toUpperCase().replace(/[^A-Z ]/g,"");
+for (var i=0;i<mitexto.length;i++) {
 	var nletra=mitexto.charCodeAt(i) - 65;
-	if (nletra>=32) nletra-=32;		//minuscula
-	if (nletra==-33) nletra=26;		//espacio
-	tfinal+=letras.substring(nletra*136, (nletra+1)*136);
-	}
-document.getElementById("texto").value=tfinal.substring(0,tfinal.length-17);
+	if (nletra<0) for (var j=0;j<7;j++) tfinal+=letras[26];
+	else tfinal+=letras[nletra];
+	if (i<mitexto.length-1) tfinal+=letras[26];
 }
+document.getElementById("texto").value=tfinal;
+}
+
+function remapea() {
+	letras=shapeletras.map(c=>c.replace(/./g,x=>x=='X' ? cb : cw));
+	cambia();
+}
+
+remapea();
 </script>
 </body>
 </html>
